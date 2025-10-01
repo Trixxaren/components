@@ -1,3 +1,3 @@
-# Trix
-component library for react apps
-TBC
+# Component library for react apps
+
+## TBC

@@ -1,0 +1,106 @@
+/* Yttre container för att centrera kort */
+.container {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  background: #f7f7f8;
+}
+
+.innerContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Själva kortet */
+.userCard {
+  position: relative;
+  border-radius: 20px; /* Runda hörn */
+  padding: 24px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-size: cover; /* Bakgrundsbild */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  overflow: hidden; /* Klipper bilden till samma radie */
+  border: 1px solid #e6e6ea;
+}
+
+.userCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Overlay som tonar ner bilden */
+.userCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75); /* justera 0.6–0.9 efter smak */
+  border-radius: inherit; /* exakt samma hörn */
+  z-index: 0;
+}
+
+/* Se till att innehållet ligger ovanpå overlay */
+.userHeader,
+.userInfo {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header: namn vänster, company höger */
+.userHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #f0f0f2;
+  padding-bottom: 8px;
+}
+
+.userName {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.company {
+  margin: 0;
+  font-size: 16px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Footer info längst ner */
+.userInfo {
+  margin-top: 12px;
+}
+
+.line {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #2d2f33;
+}
+
+.label {
+  font-weight: 600;
+  color: #3b3f46;
+}
+
+/* Responsivt */
+@media (max-width: 480px) {
+  .innerContainer {
+    grid-template-columns: 1fr;
+  }
+  .userCard {
+    padding: 18px;
+  }
+}

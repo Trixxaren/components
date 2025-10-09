@@ -1,0 +1,35 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks'; import * as AccordionStories from './Accordion.stories.jsx';
+
+# Accordion
+A versatile accordion component that provides collapsible content sections with smooth animations and comprehensive accessibility features.
+  
+# What is an Accordion?
+An accordion is a UI component that displays a list of items where each item can be expanded or collapsed to show or hide its content. It's commonly used for:
+  
+- FAQ sections: Organizing frequently asked questions and answers
+- Navigation menus: Creating collapsible navigation structures
+- Content organization: Breaking down large content into digestible sections
+- Settings panels: Grouping related settings and options
+  
+# Basic Usage
+
+```jsx
+import React from 'react';
+import { Accordion } from './Accordion';
+
+function BasicAccordion() {
+  return (
+    <Accordion>
+      <Accordion.Item itemId="item-1">
+        <Accordion.Header itemId="item-1">
+          What is an accordion?
+        </Accordion.Header>
+        <Accordion.Content itemId="item-1">
+          <p>An accordion is a collapsible content component.</p>
+        </Accordion.Content>
+      </Accordion.Item>
+    </Accordion>
+  );
+}
+```
+

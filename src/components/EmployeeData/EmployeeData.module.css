@@ -1,0 +1,125 @@
+:root {
+  --bg: #0f1115;
+  --card-bg: #1a1d24;
+  --card-border: rgba(255, 255, 255, 0.05);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.65);
+  --pill-bg: #2a2f36;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 40px;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+.card {
+  width: 260px;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 24px;
+  text-align: center;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.image {
+  width: 188px;
+  height: 188px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.position {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+}
+
+.pills {
+  display: flex;
+  flex-direction: column; /* Gör flera rader (rad 1 & 2) */
+  align-items: center; /* Centrerar raderna horisontellt */
+  gap: 10px; /* Avstånd mellan rad 1 och 2 */
+  margin-top: 8px;
+}
+
+/* Varje rad */
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Avstånd mellan pill-brickor på samma rad */
+}
+
+/* Samma stil för varje pill som tidigare */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #2a2f36;
+  color: white;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  opacity: 0.95;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease;
+}
+
+.pill:hover {
+  background: #343942;
+}
+
+.pillLabel {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.pillDivider {
+  opacity: 0.4;
+}
+
+.pillValue {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.description {
+  flex-basis: 100%; /* Gör att den ligger under pill-raden */
+  margin-top: 6px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 85%; /* Håller texten inom kortets mitt */
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}

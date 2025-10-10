@@ -1,0 +1,48 @@
+.accordion {
+  width: 100%;
+  max-width: 480px;
+  margin: 16px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  width: 100%;
+  background: #f3f4f6;
+  color: #111827;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header:hover {
+  background: #e5e7eb;
+}
+
+.title {
+  margin: 0;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.open {
+  transform: rotate(180deg);
+}
+
+.content {
+  background: #ffffff;
+  color: #374151;
+  padding: 12px 16px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 15px;
+  line-height: 1.6;
+}

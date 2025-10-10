@@ -1,12 +1,10 @@
-import { Accordion } from './Accordion';
+import Accordion from "./Accordion";
 
 export default {
-	title: 'Components/Accordion',
-	component: Accordion,
+  title: "Components/Accordion",
+  component: Accordion,
+  tags: ["autodocs"],
 
 };
 
-export const Default = {
-	args: {}
-};
-
+export const Default = {};

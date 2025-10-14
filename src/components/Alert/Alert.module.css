@@ -1,0 +1,18 @@
+.warning {
+  border: 1px solid black;
+  background-color: rgb(161, 10, 10);
+  color: white;
+  padding: 8px;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* centrerar innehållet horisontellt */
+  align-items: center; /* centrerar innehållet vertikalt */
+  min-height: 50px; /* lite höjd för att se balanserat ut */
+  border-radius: 7px;
+  padding: 16px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* mjuk skugga */
+}

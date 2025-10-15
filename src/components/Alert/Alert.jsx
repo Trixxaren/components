@@ -3,8 +3,18 @@ import styles from "./Alert.module.css";
 const Alert = (props) => {
   return (
     <div className={styles.container}>
-      <div className={styles.warning}>⚠️ {props.text} ⚠️</div>
-    </div>
+      <div style={{backgroundColor: props.color,
+       border: "1px solid black",
+        color: "white",
+        padding: "8px",
+        borderRadius: "7px",
+        fontWeight: "bold",
+
+      }} >⚠️ {props.text} ⚠️</div>
+      
+      
+      </div>
+   
   );
 };
 

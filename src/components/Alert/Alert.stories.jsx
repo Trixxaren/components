@@ -9,8 +9,9 @@ export default {
 export const Default = () => {
   return (
     <div>
-      <Alert text="This is a sample alert message. It provides important information to the user." />
-      <Alert text="Alternative put your console.log message in here with props" />
+      <Alert color="rgb(161, 10, 10)" text="This is a sample alert message. It provides important information to the user." />
+      <Alert color="rgb(161, 10, 10)" text="Alternative put your console.log message in here with props" />
+      <Alert text="Positive message" color="green" />
     </div>
   );
 };

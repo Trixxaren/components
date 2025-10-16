@@ -1,0 +1,23 @@
+.container {
+  display: flex; /* Lägger korten i rad */
+  justify-content: center; /* Centrerar hela raden horisontellt */
+  align-items: flex-start; /* Justerar toppkanterna lika */
+  flex-wrap: wrap; /* Gör att korten hoppar ner på nästa rad om det blir trångt */
+  gap: 20px; /* Luft mellan korten */
+  margin-top: 40px;
+}
+
+.card {
+  background-color: var(--card-color, #ccc); /* fallback-färg */
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  width: 250px;
+  height: 250px;
+  font-family: Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

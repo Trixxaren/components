@@ -1,46 +1,62 @@
-import styles from './ProgressBar.module.css';
 import PropTypes from "prop-types";
 
 const clamp = (n) => Math.max(0, Math.min(n ?? 0, 100));
 
 const ProgressBar = ({ value = 0, showLabel = true }) => {
-	const v = clamp(Number(value));
-	console.log("[Progress props", { value, v, showLabel }) // spårar props
+  const v = clamp(Number(value));
+  console.log("[ProgressBar props]", { value, v, showLabel });
 
-	return (
-		<div
-		style={{ display: "flex", 
-		alignItems: "center",
-		gap: 8
-		}}>
-			<div
-			role="progressbar"
-			aria-label="Förlopp"
-			aria-valuemin={0}
-			aria-valuemax={100}
-			aria-valuenow={v}
-			aria-valuetext={`${v} procent`}
-			style={{
-				width: 320,
-				height: 12,
-				background: "#e5e7eb",
-				borderRadius: 9999,
-				overflow: "hidden",
-				boxShadow: "inset 0 0 0 1px #d1d5db",
-			}}
-			/>
-			{showLabel && (
-				<span style={{ fontSize: 12}} aria-hidden="true">
-					{v}%
-				</span>
-			)}
-		</div>
-	);
+  // Välj färg baserat på värdet (trafikljus-logik)
+  const getColor = () => {
+    if (v < 33) return "#ef4444";   // Röd
+    if (v < 66) return "#f59e0b";   // Gul
+    return "#10b981";               // Grön
+  };
+
+  const barColor = getColor();
+
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      {/* Glaset */}
+      <div
+        role="progressbar"
+        aria-label="Förlopp"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={v}
+        aria-valuetext={`${v} procent`}
+        style={{
+          width: 320,
+          height: 20,
+          background: "#e5e7eb",
+          borderRadius: 9999,
+          overflow: "hidden",
+          boxShadow: "inset 0 0 0 1px #d1d5db",
+        }}
+      >
+        {/* Vätskan (fyllda delen) */}
+        <div
+          style={{
+            width: `${v}%`,
+            height: "100%",
+            background: barColor,
+            transition: "width 300ms ease-in-out, background 200ms linear",
+          }}
+        />
+      </div>
+
+      {showLabel && (
+        <span style={{ fontSize: 14, width: 40, textAlign: "right" }} aria-hidden="true">
+          {v}%
+        </span>
+      )}
+    </div>
+  );
 };
 
-Progress.propTypes = {
-	value: PropTypes.number,
-	showLabel: PropTypes.bool,
-}
+ProgressBar.propTypes = {
+  value: PropTypes.number,
+  showLabel: PropTypes.bool,
+};
 
 export default ProgressBar;

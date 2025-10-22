@@ -1,11 +1,11 @@
-.avatar-container {
+.avatarContainer {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
 .avatar,
-.avatar-placeholder {
+.avatarPlaceholder {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -21,13 +21,13 @@
 }
 
 /* Liten zoom-effekt när man hoovrar */
-.avatar-container:hover .avatar,
-.avatar-container:hover .avatar-placeholder {
+.avatarContainer:hover .avatar,
+.avatarContainer:hover .avatarPlaceholder {
   transform: scale(1.05);
 }
 
 /* Tooltip */
-.avatar-tooltip {
+.avatarTooltip {
   position: absolute;
   bottom: -35px;
   left: 50%;

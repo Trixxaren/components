@@ -1,28 +1,44 @@
 import { useState } from "react";
 import styles from "./Avatar.module.css";
 
-const Avatar = (name, src) => {
-  const initials = name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
+const Avatar = ({ name, src, size = 80 }) => {
+  const [imgOk, setImgOk] = useState(Boolean(src));
 
-  const [hovered, setIsHovered] = useState(false);
+  const label = typeof name === "string" ? name.trim() : String(name || "");
+  const initials =
+    label
+      ?.split(" ")
+      ?.map((w) => w[0])
+      ?.join("")
+      ?.toUpperCase() || "?";
+
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <div
-      className="avatar-container"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {src ? (
-        <img src={src} alt={name} className="avatar" />
+    <div className={styles.container}>
+      {imgOk ? (
+        <img
+          src={src}
+          alt={label}
+          className={styles.avatar}
+          style={{ width: size, height: size }}
+          onError={() => setImgOk(false)}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        />
       ) : (
-        <div className="avatar-placeholder">{initials}</div>
+        <div
+          className={styles.placeholder}
+          style={{
+            width: size,
+            height: size,
+            fontSize: Math.max(14, size * 0.3),
+          }}
+        >
+          {initials}
+        </div>
       )}
-
-      {hovered && <div className="avatar-tooltip">{name}</div>}
+      {hovered && <div className={styles.tooltip}>{label}</div>}
     </div>
   );
 };

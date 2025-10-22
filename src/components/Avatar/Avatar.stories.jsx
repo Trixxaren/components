@@ -8,7 +8,7 @@ export default {
 export const Default = () => {
   return (
     <div>
-      <Avatar />
+      <Avatar name="Robin Vikström" src="https://picsum.photos/200" size={80} />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import img4 from "../../assets/img4.jpg";
 export default {
   title: "Components/Avatar",
   component: Avatar,
+  tags: ["autodocs"],
 };
 
 export const Default = () => {

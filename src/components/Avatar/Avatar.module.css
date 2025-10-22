@@ -1,0 +1,49 @@
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.avatar,
+.avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Liten zoom-effekt när man hoovrar */
+.avatar-container:hover .avatar,
+.avatar-container:hover .avatar-placeholder {
+  transform: scale(1.05);
+}
+
+/* Tooltip */
+.avatar-tooltip {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #111827;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

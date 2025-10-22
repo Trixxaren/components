@@ -3,6 +3,7 @@ import styles from "./Avatar.module.css";
 
 const Avatar = ({ name, src, size = 80 }) => {
   const [imgOk, setImgOk] = useState(Boolean(src));
+  const [hovered, setHovered] = useState(false);
 
   const label = typeof name === "string" ? name.trim() : String(name || "");
   const initials =
@@ -12,10 +13,12 @@ const Avatar = ({ name, src, size = 80 }) => {
       ?.join("")
       ?.toUpperCase() || "?";
 
-  const [hovered, setHovered] = useState(false);
-
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {imgOk ? (
         <img
           src={src}
@@ -23,8 +26,6 @@ const Avatar = ({ name, src, size = 80 }) => {
           className={styles.avatar}
           style={{ width: size, height: size }}
           onError={() => setImgOk(false)}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
         />
       ) : (
         <div

@@ -1,49 +1,50 @@
-.avatarContainer {
+.container {
   position: relative;
   display: inline-block;
-  cursor: pointer;
 }
 
+/* Själva bilden eller initialerna */
 .avatar,
-.avatarPlaceholder {
-  width: 80px;
-  height: 80px;
+.placeholder {
   border-radius: 50%;
   object-fit: cover;
   background-color: #4f46e5;
   color: white;
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-/* Liten zoom-effekt när man hoovrar */
-.avatarContainer:hover .avatar,
-.avatarContainer:hover .avatarPlaceholder {
+/* Liten zoom-effekt */
+.avatar:hover,
+.placeholder:hover {
   transform: scale(1.05);
 }
 
-/* Tooltip */
-.avatarTooltip {
+/* Tooltip-rutan */
+.tooltip {
   position: absolute;
-  bottom: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #111827;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 14px;
+  top: 50%; /* mitt på bilden */
+  left: calc(100% + 12px); /* flytta ut till höger */
+  transform: translateY(-50%); /* centrera vertikalt */
+  background-color: #bcbfc3; /* ljusgrå bakgrund (Tailwind gray-200) */
+  color: #111827; /* mörk text */
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   white-space: nowrap;
   opacity: 0;
-  animation: fadeIn 0.2s forwards;
+  transform-origin: left center;
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  z-index: 10;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+/* Fade-in och liten slide-effekt när man hovrar */
+.container:hover .tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(4px);
 }

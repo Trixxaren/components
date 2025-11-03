@@ -1,0 +1,12 @@
+.container {
+    background-color: rgb(100, 97, 97);
+    width: 8rem;
+    height: 10vh;
+    border-radius: 2px;
+}
+
+.text {
+    color: white;
+    margin: 0px 0px 0px 15px;
+    padding: 2px;
+}
